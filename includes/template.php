@@ -234,7 +234,7 @@ function flux_load_theme_functions() {
  * @return string
  */
 function flux_get_templates_dir() {
-	return apply_filters( 'flux_get_templates_dir', flux()->template_dir );
+	return apply_filters( 'flux_get_templates_dir', flux()->templates_dir );
 }
 
 /**
@@ -516,4 +516,11 @@ function flux_template_include_theme_compat( $template = '' ) {
 	}
 
 	return apply_filters( 'flux_template_include_theme_compat', $template );
+}
+
+/**
+ * Add a nifty archive navigation tool to the sidebar
+ */
+function flux_add_sidebar_navigation( $name ) {
+	flux_get_template_part( 'navigation-widget' );
 }

@@ -48,6 +48,9 @@ add_filter( 'body_class',              'flux_body_class',         10, 2 );
 // Force comments_status on Flux post types
 //add_filter( 'comments_open', 'flux_force_comment_status' );
 
+// Add the navigation sidebar widget to the primary sidebar
+add_filter( 'sidebars_widgets',         'flux_sidebar_widgets' );
+
 /**
  * Feeds
  *
