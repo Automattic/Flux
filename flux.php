@@ -3,9 +3,7 @@
 /**
  * The Flux Plugin
  *
- * Flux is forum software with a twist from the creators of WordPress.
- *
- * $Id: flux.php 4204 2012-09-04 19:04:23Z bumpbot $
+ * Flux makes time travel possible
  *
  * @package Flux
  * @subpackage Main
@@ -14,7 +12,7 @@
 /**
  * Plugin Name: Flux
  * Plugin URI:  http://flux.org
- * Description: Flux is forum software with a twist from the creators of WordPress.
+ * Description: Flux makes time travel possible
  * Author:      The Flux Community
  * Author URI:  http://flux.org
  * Version:     0.1
@@ -60,11 +58,6 @@ final class Flux {
 	 * @var obj Add-ons append to this (Akismet, BuddyPress, etc...)
 	 */
 	public $extend;
-
-	/**
-	 * @var array Topic views
-	 */
-	public $views        = array();
 
 	/**
 	 * @var array Overloads get_option()
@@ -389,8 +382,6 @@ final class Flux {
 	 * Register Flux-specific rewrite rules for uri's that are not
 	 * setup for us by way of custom post types or taxonomies. This includes:
 	 * - Front-end editing
-	 * - Topic views
-	 * - User profiles
 	 *
 	 * @since Flux (0.1)
 	 * @param WP_Rewrite $wp_rewrite Flux-sepecific rules are appended in
