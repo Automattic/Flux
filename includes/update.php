@@ -13,7 +13,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 /**
  * If there is no raw DB version, this is the first installation
  *
- * @since Flux (r3764)
+ * @since Flux (0.1)
  *
  * @uses get_option()
  * @uses flux_get_db_version() To get Flux's database version
@@ -26,7 +26,7 @@ function flux_is_install() {
 /**
  * Compare the Flux version to the DB version to determine if updating
  *
- * @since Flux (r3421)
+ * @since Flux (0.1)
  *
  * @uses get_option()
  * @uses flux_get_db_version() To get Flux's database version
@@ -118,7 +118,7 @@ function flux_is_deactivation( $basename = '' ) {
 /**
  * Update the DB to the latest version
  *
- * @since Flux (r3421)
+ * @since Flux (0.1)
  * @uses update_option()
  * @uses flux_get_db_version() To get Flux's database version
  */
@@ -130,7 +130,7 @@ function flux_version_bump() {
 /**
  * Setup the Flux updater
  *
- * @since Flux (r3419)
+ * @since Flux (0.1)
  *
  * @uses flux_version_updater()
  * @uses flux_version_bump()
@@ -153,7 +153,7 @@ function flux_setup_updater() {
  * This is most-often used when the data schema changes, but should also be used
  * to correct issues with Flux meta-data silently on software update.
  *
- * @since Flux (r4104)
+ * @since Flux (0.1)
  */
 function flux_version_updater() {
 

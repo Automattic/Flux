@@ -229,7 +229,7 @@ function flux_load_theme_functions() {
  * or set manually. Tricky theme authors can override the default and include
  * their own Flux compatability layers for their themes.
  *
- * @since Flux (r3032)
+ * @since Flux (0.1)
  * @uses apply_filters()
  * @return string
  */
@@ -243,7 +243,7 @@ function flux_get_templates_dir() {
  * or set manually. Tricky theme authors can override the default and include
  * their own Flux compatability layers for their themes.
  *
- * @since Flux (r3032)
+ * @since Flux (0.1)
  * @uses apply_filters()
  * @return string
  */
@@ -254,7 +254,7 @@ function flux_get_templates_url() {
 /**
  * Gets true/false if page is currently inside theme compatibility
  *
- * @since Flux (r3265)
+ * @since Flux (0.1)
  * @return bool
  */
 function flux_is_theme_compat_active() {
@@ -268,7 +268,7 @@ function flux_is_theme_compat_active() {
 /**
  * Sets true/false if page is currently inside theme compatibility
  *
- * @since Flux (r3265)
+ * @since Flux (0.1)
  * @param bool $set
  * @return bool
  */
@@ -284,7 +284,7 @@ function flux_set_theme_compat_active( $set = true ) {
  * Stash possible template files for the current query. Useful if plugins want
  * to override them, or see what files are being scanned for inclusion.
  *
- * @since Flux (r3311)
+ * @since Flux (0.1)
  */
 function flux_set_theme_compat_templates( $templates = array() ) {
 	flux()->theme_compat->templates = $templates;
@@ -298,7 +298,7 @@ function flux_set_theme_compat_templates( $templates = array() ) {
  * Stash the template file for the current query. Useful if plugins want
  * to override it, or see what file is being included.
  *
- * @since Flux (r3311)
+ * @since Flux (0.1)
  */
 function flux_set_theme_compat_template( $template = '' ) {
 	flux()->theme_compat->template = $template;
@@ -312,7 +312,7 @@ function flux_set_theme_compat_template( $template = '' ) {
  * Stash the original template file for the current query. Useful for checking
  * if Flux was able to find a more appropriate template.
  *
- * @since Flux (r3926)
+ * @since Flux (0.1)
  */
 function flux_set_theme_compat_original_template( $template = '' ) {
 	flux()->theme_compat->original_template = $template;
@@ -326,22 +326,21 @@ function flux_set_theme_compat_original_template( $template = '' ) {
  * Stash the original template file for the current query. Useful for checking
  * if Flux was able to find a more appropriate template.
  *
- * @since Flux (r3926)
+ * @since Flux (0.1)
  */
 function flux_is_theme_compat_original_template( $template = '' ) {
-	$bbp = flux();
 
-	if ( empty( $bbp->theme_compat->original_template ) )
+	if ( empty( flux()->theme_compat->original_template ) )
 		return false;
 
-	return (bool) ( $bbp->theme_compat->original_template == $template );
+	return (bool) ( flux()->theme_compat->original_template == $template );
 }
 
 /**
  * This fun little function fills up some WordPress globals with dummy data to
  * stop your average page template from complaining about it missing.
  *
- * @since Flux (r3108)
+ * @since Flux (0.1)
  * @global WP_Query $wp_query
  * @global object $post
  * @param array $args
@@ -474,7 +473,7 @@ function flux_theme_compat_reset_post( $args = array() ) {
  * Reset main query vars and filter 'the_content' to output a Flux
  * template part as needed.
  *
- * @since Flux (r3032)
+ * @since Flux (0.1)
  * @param string $template
  */
 function flux_template_include_theme_compat( $template = '' ) {
