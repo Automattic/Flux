@@ -222,16 +222,6 @@ function flux_add_rewrite_tags() {
 	do_action( 'flux_add_rewrite_tags' );
 }
 
-/**
- * Add the Flux-specific login forum action
- *
- * @since Flux (0.1)
- * @uses do_action() Calls 'flux_login_form_login'
- */
-function flux_login_form_login() {
-	do_action( 'flux_login_form_login' );
-}
-
 /** Final Action **************************************************************/
 
 /**

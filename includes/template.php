@@ -476,30 +476,10 @@ function flux_theme_compat_reset_post( $args = array() ) {
  *
  * @since Flux (r3032)
  * @param string $template
- * @uses flux_is_single_user() To check if page is single user
- * @uses flux_get_single_user_template() To get user template
- * @uses flux_is_single_user_edit() To check if page is single user edit
- * @uses flux_get_single_user_edit_template() To get user edit template
- * @uses flux_is_single_view() To check if page is single view
- * @uses flux_get_single_view_template() To get view template
- * @uses flux_is_forum_edit() To check if page is forum edit
- * @uses flux_get_forum_edit_template() To get forum edit template
- * @uses flux_is_topic_merge() To check if page is topic merge
- * @uses flux_get_topic_merge_template() To get topic merge template
- * @uses flux_is_topic_split() To check if page is topic split
- * @uses flux_get_topic_split_template() To get topic split template
- * @uses flux_is_topic_edit() To check if page is topic edit
- * @uses flux_get_topic_edit_template() To get topic edit template
- * @uses flux_is_reply_edit() To check if page is reply edit
- * @uses flux_get_reply_edit_template() To get reply edit template
- * @uses flux_set_theme_compat_template() To set the global theme compat template
  */
 function flux_template_include_theme_compat( $template = '' ) {
 
-	// Bail if the template already matches a Flux template. This includes
-	// archive-* and single-* WordPress post_type matches (allowing
-	// themes to use the expected format) as well as all Flux-specific
-	// template files for users, topics, forums, etc...
+	// Bail if the template already matches a Flux template.
 	if ( !empty( flux()->theme_compat->flux_template ) )
 		return $template;
 

@@ -191,7 +191,7 @@ function flux_get_slug( $default = 'timeline' ) {
 }
 
 /**
- * Are we including the root slug in front of forum pages?
+ * Are we including the root slug in front of flux content?
  *
  * @since Flux (0.1)
  * @return bool
