@@ -44,12 +44,10 @@ add_filter( 'request',                 'flux_request',            10    );
 add_filter( 'template_include',        'flux_template_include',   10    );
 add_filter( 'wp_title',                'flux_title',              10, 3 );
 add_filter( 'body_class',              'flux_body_class',         10, 2 );
+add_filter( 'sidebars_widgets',        'flux_sidebar_widgets',    10    );
 
 // Force comments_status on Flux post types
 //add_filter( 'comments_open', 'flux_force_comment_status' );
-
-// Add the navigation sidebar widget to the primary sidebar
-add_filter( 'sidebars_widgets',         'flux_sidebar_widgets' );
 
 /**
  * Feeds
