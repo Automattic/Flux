@@ -252,6 +252,27 @@ function flux_get_templates_url() {
 }
 
 /**
+ * Get the templates to use as the endpoint for Flx template parts
+ *
+ * @since Flux (0.1)
+ *
+ * @uses apply_filters()
+ * @uses flux_get_query_template()
+ * @return string Path to template file
+ */
+function flux_get_theme_compat_templates() {
+	$templates = array(
+		'plugin-flux.php',
+		'flux.php',
+		'generic.php',
+		'page.php',
+		'single.php',
+		'index.php'
+	);
+	return flux_get_query_template( 'flux', $templates );
+}
+
+/**
  * Gets true/false if page is currently inside theme compatibility
  *
  * @since Flux (0.1)
@@ -502,9 +523,6 @@ function flux_template_include_theme_compat( $template = '' ) {
 
 	// Remove all filters from the_content
 	remove_all_filters( 'the_content' );
-
-	// Add a filter on the_content late, which we will later remove
-	add_filter( 'the_content', 'flux_replace_the_content' );
 
 	return apply_filters( 'flux_template_include_theme_compat', flux_get_theme_compat_templates() );
 }
