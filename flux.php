@@ -375,7 +375,7 @@ final class Flux {
 	 * @uses add_rewrite_tag() To add the rewrite tags
 	 */
 	public static function add_rewrite_tags() {
-		add_rewrite_tag( '%%' . flux_get_id() . '%%', '([^/]+)' ); // Timeline tag
+		add_rewrite_tag( '%%' . flux_get_rewrite_id() . '%%', '([^/]+)' ); // Timeline tag
 	}
 
 	/**
@@ -391,7 +391,7 @@ final class Flux {
 
 		// Slugs
 		$flux_slug = flux_get_slug();
-		$flux_id   = flux_get_id();
+		$flux_id   = flux_get_rewrite_id();
 
 		// Rewrite rule matches used repeatedly below
 		$root_rule = '/?$';
