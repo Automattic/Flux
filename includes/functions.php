@@ -19,7 +19,7 @@ function is_flux_query() {
  * @return string
  */
 function flux_get_rewrite_id() {
-	return apply_filters( 'flux_get_id', 'flux_id' );
+	return apply_filters( 'flux_get_rewrite_id', 'flux_id' );
 }
 
 /**

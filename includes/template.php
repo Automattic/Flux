@@ -190,7 +190,7 @@ function flux_parse_query( $posts_query ) {
 		return;
 
 	// Bail if not a timeline request
-	$flux = $posts_query->get( flux_get_id() );
+	$flux = $posts_query->get( flux_get_rewrite_id() );
 	if ( empty( $flux ) )
 		return;
 
