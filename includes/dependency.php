@@ -131,6 +131,16 @@ function flux_widgets_init() {
 }
 
 /**
+ * Manipulate the rendering of a sidebar
+ *
+ * @since Flux (0.1)
+ * @uses do_action() Calls 'flux_dynamic_sidebar'
+ */
+function flux_dynamic_sidebar( $widgets ) {
+	do_action( 'flux_dynamic_sidebar', $name );
+}
+
+/**
  * Setup the currently logged-in user
  *
  * @since Flux (0.1)
