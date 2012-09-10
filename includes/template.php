@@ -351,7 +351,7 @@ function flux_theme_compat_reset_post( $args = array() ) {
 	// Default arguments
 	$defaults = array(
 		'ID'                    => -9999,
-		'post_status'           => flux_get_public_status_id(),
+		'post_status'           => 'publish',
 		'post_author'           => 0,
 		'post_parent'           => 0,
 		'post_type'             => 'page',
@@ -417,7 +417,7 @@ function flux_theme_compat_reset_post( $args = array() ) {
 			'is_tax'          => false,
 		);
 	}
-	$dummy = flux_parse_args( $args, $defaults, 'theme_compat_reset_post' );
+	$dummy = wp_parse_args( $args, $defaults, 'theme_compat_reset_post' );
 
 	// Clear out the post related globals
 	unset( $wp_query->posts );
@@ -479,41 +479,32 @@ function flux_theme_compat_reset_post( $args = array() ) {
 function flux_template_include_theme_compat( $template = '' ) {
 
 	// Bail if the template already matches a Flux template.
-	if ( !empty( flux()->theme_compat->flux_template ) )
+	if ( ! is_flux_query() || !empty( flux()->theme_compat->flux_template ) )
 		return $template;
 
-	// Topc Tag
-	if ( is_flux() ) {
+	ob_start();
 
-		ob_start();
+	flux_get_template_part( 'content', 'timeline' );
 
-		flux_get_template_part( 'content', 'timeline' );
+	// Reset the post with our new title
+	flux_theme_compat_reset_post( array(
+		'ID'             => 0,
+		'post_author'    => 0,
+		'post_date'      => 0,
+		'post_content'   => ob_get_contents(),
+		'post_type'      => 'flux',
+		'post_title'     => __( 'Timeline', 'flux'),
+		'post_status'    => 'publish',
+		'comment_status' => 'closed'
+	) );
 
-		$new_content = ob_get_contents();
+	ob_end_clean();
 
-		ob_end_clean();
+	// Remove all filters from the_content
+	remove_all_filters( 'the_content' );
 
-		// Reset the post with our new title
-		flux_theme_compat_reset_post( array(
-			'ID'             => 0,
-			'post_author'    => 0,
-			'post_date'      => 0,
-			'post_content'   => $new_content,
-			'post_type'      => 'flux',
-			'post_title'     => __( 'Timeline', 'flux'),
-			'post_status'    => 'publish',
-			'comment_status' => 'closed'
-		) );
+	// Add a filter on the_content late, which we will later remove
+	add_filter( 'the_content', 'flux_replace_the_content' );
 
-		// Remove all filters from the_content
-		flux_remove_all_filters( 'the_content' );
-
-		// Add a filter on the_content late, which we will later remove
-		add_filter( 'the_content', 'flux_replace_the_content' );
-
-		// Find the appropriate template file
-		$template = flux_get_theme_compat_templates();
-	}
-
-	return apply_filters( 'flux_template_include_theme_compat', $template );
+	return apply_filters( 'flux_template_include_theme_compat', flux_get_theme_compat_templates() );
 }
