@@ -46,9 +46,6 @@ add_filter( 'wp_title',                'flux_title',              10, 3 );
 add_filter( 'body_class',              'flux_body_class',         10, 2 );
 add_filter( 'sidebars_widgets',        'flux_sidebar_widgets',    10    );
 
-// Force comments_status on Flux post types
-//add_filter( 'comments_open', 'flux_force_comment_status' );
-
 /**
  * Feeds
  *
@@ -58,15 +55,8 @@ add_filter( 'sidebars_widgets',        'flux_sidebar_widgets',    10    );
  */
 //add_filter( 'flux_request', 'flux_request_feed_trap' );
 
-/**
- * Template Compatibility
- *
- * If you want to completely bypass this and manage your own custom Flux
- * template hierarchy, start here by removing this filter, then look at how
- * flux_template_include() works and do something similar. :)
- */
-//add_filter( 'flux_template_include', 'flux_template_include_theme_supports', 2, 1 );
-//add_filter( 'flux_template_include', 'flux_template_include_theme_compat',   4, 2 );
+// Template Compatibility
+add_filter( 'flux_template_include', 'flux_template_include_theme_compat',   4, 2 );
 
 // Queries
 //add_filter( 'posts_request', '_flux_has_replies_where', 10, 2 );
