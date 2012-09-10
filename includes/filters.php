@@ -46,15 +46,6 @@ add_filter( 'wp_title',                'flux_title',              10, 3 );
 add_filter( 'body_class',              'flux_body_class',         10, 2 );
 add_filter( 'sidebars_widgets',        'flux_sidebar_widgets',    10    );
 
-/**
- * Feeds
- *
- * Flux comes with a number of custom RSS2 feeds that get handled outside
- * the normal scope of feeds that WordPress would normally serve. To do this,
- * we filter every page request, listen for a feed request, and trap it.
- */
-//add_filter( 'flux_request', 'flux_request_feed_trap' );
-
 // Template Compatibility
 add_filter( 'flux_template_include', 'flux_template_include_theme_compat',   4, 2 );
 
