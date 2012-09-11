@@ -1,6 +1,7 @@
-<div id="flux-navigation" style="float:left;width:150px;">
-	<?php flux_get_template_part( 'navigation' ); ?>
+<div style="position:relative;float:left;">
+<?php flux_get_template_part( 'navigation' ); ?>
 </div>
+
 <?php
 $args = array(
 		'post_type'       => 'post',

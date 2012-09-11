@@ -6,6 +6,11 @@ $history = flux_get_blog_history();
 if ( empty( $history ) )
 	return;
 
+echo '<div id="flux-navigation" style="width:150px;position:fixed;">';
+
+echo '<div id="flux-capacitor" style="border-right:5px solid #222;z-index:1000;height:100000px;float:right;">';
+echo '</div>';
+
 $current_year = ( get_query_var( 'year' ) ) ? get_query_var( 'year' ) : date( 'Y' );
 $current_month = ( get_query_var( 'monthnum' ) ) ? get_query_var( 'monthnum' ) : date( 'n' );
 
@@ -31,4 +36,6 @@ foreach( $months as $month ) {
 	echo '<li>' . $month_link . '</li>';
 }
 echo '</ul>';
+echo '</div>';
+
 echo '</div>';
