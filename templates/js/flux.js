@@ -1,14 +1,17 @@
-var flux_capacitor_name = "#flux-capacitor";
-var menu_y = null;
-
 jQuery( document ).ready( function() {
+	var flux = jQuery('#flux-capacitor');
+	if ( !! flux.offset() ) {
+		var stickyTop = flux.offset().top;
+		var topGap    = 28;
 
-	menu_Y = parseInt( jQuery( flux_capacitor_name ).css( 'top' ).substring( 0, jQuery( flux_capacitor_name ).css( 'top' ).indexOf( 'px' ) ) )
+		jQuery(window).scroll( function() {
+			var windowTop = jQuery( window ).scrollTop();
 
-	jQuery( window ).scroll( function () { 
-
-		var offset = menu_y + jQuery( document ).scrollTop() + 'px';
-
-		jQuery( flux_capacitor_name ).animate( {top:offset}, {duration:0, queue:false} );
-	});
-}); 
+			if ( stickyTop - topGap < windowTop ) {
+				flux.css( { position: 'fixed', top: topGap } );
+			} else {
+				flux.css( 'position', 'static' );
+			}
+		});
+	}
+});
