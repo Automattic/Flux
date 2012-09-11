@@ -7,9 +7,9 @@ if ( empty( $history ) )
 	return;
 
 $current_year = ( get_query_var( 'year' ) ) ? get_query_var( 'year' ) : date( 'Y' );
-$current_month = ( get_query_var( 'monthnum' ) ) ? get_query_var( 'monthnum' ) : date( 'm' );
+$current_month = ( get_query_var( 'monthnum' ) ) ? get_query_var( 'monthnum' ) : date( 'n' );
 
-echo '<div class="year-selector" style="float:right">';
+echo '<div id="flux-year-selector" style="float:left;width:70px">';
 $years = array_unique( wp_list_pluck( $history, 'year' ) );
 echo '<ul>';
 foreach( $years as $year ) {
@@ -21,12 +21,12 @@ foreach( $years as $year ) {
 echo '</ul>';
 echo '</div>';
 
-echo '<div class="month-selector" style="float:left">';
+echo '<div id="flux-month-selector" style="margin-left:80px">';
 $months = wp_filter_object_list( $history, array( 'year' => $current_year ), 'and', 'month' );
 echo '<ul>';
 foreach( $months as $month ) {
 	$month_link = '<a href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
-	if ( $year == $current_month )
+	if ( $month == $current_month )
 		$month_link = '<strong>' . $month_link . '</strong>';
 	echo '<li>' . $month_link . '</li>';
 }
