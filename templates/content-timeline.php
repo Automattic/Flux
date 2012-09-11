@@ -1,28 +1,32 @@
-<div style="position:relative;float:left;">
-<?php flux_get_template_part( 'navigation' ); ?>
-</div>
+<div id="flux-wrapper" style="position: relative;">
 
-<?php
-$args = array(
-		'post_type'       => 'post',
-	);
-$flux_posts = new WP_Query( $args );
-?>
+	<div id="flux-navigation" style="position: absolute; top: 0; left: 0;">
 
-<div id="flux-content" style="margin-left:200px;">
+		<?php flux_get_template_part( 'navigation' ); ?>
 
-	<?php if ( $flux_posts->have_posts() ): ?>
+	</div>
 
-	<?php while ( $flux_posts->have_posts() ): $flux_posts->the_post(); ?>
+	<?php
+		$flux_posts = new WP_Query( array(
+			'post_type' => 'post',
+		) );
+	?>
 
-		<div class="flux-post">
+	<div id="flux-content" style="margin-left: 200px;">
 
-		<?php flux_get_template_part( 'content', get_post_format() ); ?>
+		<?php if ( $flux_posts->have_posts() ): ?>
 
-		</div>
+		<?php while ( $flux_posts->have_posts() ): $flux_posts->the_post(); ?>
 
-	<?php endwhile; ?>
+			<div class="flux-post">
 
-	<?php endif; ?>
+			<?php flux_get_template_part( 'content', get_post_format() ); ?>
 
+			</div>
+
+		<?php endwhile; ?>
+
+		<?php endif; ?>
+
+	</div>
 </div>
