@@ -6,7 +6,25 @@ $history = flux_get_blog_history();
 if ( empty( $history ) )
 	return;
 
-echo '<div id="flux-navigation" style="width:150px;position:fixed;">';
+?>
+<script>
+jQuery(document).ready(function($){
+	var nav = $("#flux-navigation"), pos = nav.offset();
+	$(window).scroll(function() { 
+		if ( $(this).scrollTop() > pos.top ) {
+			nav.css( 'position','fixed' );
+			nav.css( 'top','70px' );
+		} else if ( $(this).scrollTop() < pos.top ) {
+			nav.css( 'position','relative' );
+			nav.css( 'top','' );
+		}
+	})
+});
+</script>
+
+<?php
+
+echo '<div id="flux-navigation" style="width:150px;position:relative;top:70px;">';
 
 echo '<div id="flux-capacitor" style="border-right:5px solid #222;z-index:1000;height:100000px;float:right;">';
 echo '</div>';
