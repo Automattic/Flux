@@ -1,8 +1,6 @@
 <?php
 
 $history = flux_get_blog_history();
-
-// No posts :(
 if ( empty( $history ) )
 	return;
 
@@ -13,8 +11,8 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 
 ?>
 
-<div id="flux-capacitor">
-	<div id="flux-year-selector" style="float:left;width:70px">
+<div id="flux-capacitor" style="position: absolute;">
+	<div id="flux-year-selector" style="float:left; width:70px">
 		<ul>
 			<?php foreach( $years as $year ) : ?>
 

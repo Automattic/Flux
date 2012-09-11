@@ -251,7 +251,7 @@ function flux_get_templates_dir() {
  * @return string
  */
 function flux_get_templates_url() {
-	return apply_filters( 'flux_get_templates_url', flux()->template_url );
+	return apply_filters( 'flux_get_templates_url', flux()->templates_url );
 }
 
 /**

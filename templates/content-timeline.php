@@ -1,6 +1,9 @@
-<div id="flux-wrapper" style="position: relative;">	
+<div id="flux-wrapper" style="position: relative;">
+
 	<div id="flux-navigation" style="position: absolute; top: 0; left: 0;">
+
 		<?php flux_get_template_part( 'navigation' ); ?>
+
 	</div>
 
 	<?php
