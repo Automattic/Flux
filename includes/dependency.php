@@ -361,7 +361,7 @@ function flux_title( $title = '' ) {
 }
 
 /**
- * The main action used for filtering the title
+ * The main action used for filtering the body class
  *
  * @since Flux (0.1)
  * @param type $title
@@ -370,4 +370,16 @@ function flux_title( $title = '' ) {
  */
 function flux_body_class( $class = '' ) {
 	return apply_filters( 'flux_body_class', $class );
+}
+
+/**
+ * The main action used for filtering post classes
+ *
+ * @since Flux (0.1)
+ * @param type $title
+ * @uses apply_filters() Calls 'flux_body_class' to filter the body class
+ * @return string
+ */
+function flux_post_class( $wp_classes = array(), $class = '', $post_id = 0 ) {
+	return apply_filters( 'flux_body_class', $wp_classes, $class, $post_id );
 }
