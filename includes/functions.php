@@ -32,3 +32,53 @@ function flux_get_blog_history() {
 	$raw_history = $wpdb->get_results( $query );
 	return $raw_history;
 }
+
+/** Template Classes **********************************************************/
+
+/**
+ * Add Flux specific body classes where needed
+ *
+ * @since Flux (0.1)
+ *
+ * @param array $wp_classes
+ * @param array $custom_classes
+ * @return array
+ */
+function flux_add_body_class( $wp_classes = array(), $custom_classes = false ) {
+
+	// The special flux body classes
+	$flux_classes = array();
+
+	// Add Flux class if we are within a timeline page
+	if ( is_flux_query() )
+		$flux_classes[] = 'flux';
+
+	// Merge WP classes with Flux classes and remove duplicates
+	$classes = array_unique( array_merge( (array) $flux_classes, (array) $wp_classes ) );
+	
+	return apply_filters( 'flux_add_body_class', $classes, $flux_classes, $wp_classes, $custom_classes );
+}
+
+/**
+ * Add Flux specific post classes where needed
+ *
+ * @since Flux (0.1)
+ *
+ * @param array $wp_classes Previously created classes
+ * @param array $classes 
+ * @return array
+ */
+function flux_add_post_class( $wp_classes = array(), $class = '', $post_id = 0 ) {
+
+	// The special flux body classes
+	$flux_classes = array();
+
+	// Add Flux class if we are within a timeline page
+	if ( is_flux_query() )
+		$flux_classes[] = 'flux';
+
+	// Merge WP classes with Flux classes and remove duplicates
+	$classes = array_unique( array_merge( (array) $flux_classes, (array) $wp_classes ) );
+
+	return apply_filters( 'flux_add_post_class', $classes, $flux_classes, $wp_classes, $class, $post_id );
+}
