@@ -12,8 +12,10 @@ jQuery( document ).ready( function($) {
 			var windowTop = jQuery( window ).scrollTop();
 
 			$('.post.flux').removeClass('top').each(function() {
-				var transition_zone = windowTop - ( $(this).height * .8 )
-				if ( $(this).offset().top > windowTop ) {
+				var transition_zone = $(this).offset().top + $(this).height();
+				console.log( $(this).offset() );
+				console.log( transition_zone + ' ' + windowTop );
+				if ( transition_zone > windowTop ) {
 					$(this).addClass('top');
 					var timestamp = $(this).attr('class').match( /flux-timestamp-([\d]+)/ );
 					if ( ! $.isArray( timestamp ) )
