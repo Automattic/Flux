@@ -12,7 +12,7 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 ?>
 
 <div id="flux-capacitor" style="position: absolute;">
-	<div id="flux-year-selector" style="float:left; width:70px">
+	<div id="flux-year-selector">
 		<ul>
 			<?php foreach( $years as $year ) : ?>
 
@@ -32,7 +32,7 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 		</ul>
 	</div>
 
-	<div id="flux-month-selector" style="margin-left:80px">
+	<div id="flux-month-selector">
 		<ul>
 
 			<?php foreach( $months as $month ) : ?>
