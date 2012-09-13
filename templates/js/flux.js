@@ -23,10 +23,31 @@ jQuery( document ).ready( function() {
 		var date = jQuery( this ).text() + '-12-31';
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
 		infiniteScroll.settings.ajaxurl += '&date=' + date; 
+		infiniteScroll.scroller.page = 1;
 
 		jQuery( '#flux-content' ).html( '' ); 
-
 		infiniteScroll.settings.ajaxurl = infinite_ajax_orig; 
+
 		return false
+	} );
+
+	jQuery( '.flux-month' ).click( function() {
+		var this_month = jQuery( this ).text();
+		if ( this_month.match( /^\d$/ ) ) {
+			this_month = '0' + this_month;
+		}
+
+		var date = jQuery( '.flux-year-active' ).text();
+		date += '-' + this_month + '-01';
+
+		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl;
+		infiniteScroll.settings.ajaxurl += '&date=' + date;
+		infiniteScroll.scroller.page = 1; 
+
+		jQuery( '#flux-content' ).html( '' );
+		infiniteScroll.scroller.refresh();
+		infiniteScroll.settings.ajaxurl = infinite_ajax_orig;
+		
+		return false;
 	} );
 });
