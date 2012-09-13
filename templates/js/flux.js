@@ -18,4 +18,15 @@ jQuery( document ).ready( function() {
 			}
 		});
 	}
+
+	jQuery( '.flux-year' ).click( function() {
+		var date = jQuery( this ).text() + '-12-31';
+		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
+		infiniteScroll.settings.ajaxurl += '&date=' + date; 
+
+		jQuery( '#flux-content' ).html( '' ); 
+
+		infiniteScroll.settings.ajaxurl = infinite_ajax_orig; 
+		return false
+	} );
 });
