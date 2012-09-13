@@ -28,7 +28,7 @@ function flux_get_rewrite_id() {
 function flux_get_blog_history() {
 	global $wpdb;
 
-	$query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month` FROM $wpdb->posts GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY post_date DESC";
+	$query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month` FROM $wpdb->posts WHERE post_status='publish' GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY post_date DESC";
 	$raw_history = $wpdb->get_results( $query );
 	return $raw_history;
 }
