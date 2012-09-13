@@ -74,8 +74,10 @@ function flux_add_post_class( $wp_classes = array(), $class = '', $post_id = 0 )
 	$flux_classes = array();
 
 	// Add Flux class if we are within a timeline page
-	if ( is_flux_query() )
+	if ( is_flux_query() ) {
 		$flux_classes[] = 'flux';
+		$flux_classes[] = 'flux-timestamp-' . get_the_time( 'U', $post_id );
+	}
 
 	// Merge WP classes with Flux classes and remove duplicates
 	$classes = array_unique( array_merge( (array) $flux_classes, (array) $wp_classes ) );
