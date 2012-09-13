@@ -1,22 +1,24 @@
 #flux-navigation {
 	z-index: 10;
+	position:absolute;
+	top:0;
 }
 
-#flux-navigation #flux-year-selector {
+#flux-navigation .flux-year-selector {
 	float:left;
 	width:85px
 }
 
-#flux-navigation #flux-month-selector {
+#flux-navigation .flux-month-selector {
 	margin-left:80px;
 }
 
-#flux-navigation #flux-year-selector ul li,
-#flux-navigation #flux-month-selector ul li {
+#flux-navigation .flux-year-selector ul li,
+#flux-navigation .flux-month-selector ul li {
 	list-style-type: none;
 }
 
-#flux-navigation #flux-year-selector ul li a.flux-year-active,
-#flux-navigation #flux-month-selector ul li a.flux-month-active {
+#flux-navigation .flux-year-selector ul li a.flux-year-active,
+#flux-navigation .flux-month-selector ul li a.flux-month-active {
 	font-weight: bold;
 }

@@ -1,11 +1,11 @@
 jQuery( document ).ready( function($) {
 
-	var flux = jQuery( '#flux-capacitor' );
+	var flux = jQuery( '#flux-navigation' );
 
 	if ( !! flux.offset() ) {
 
 		var stickyTop = flux.offset().top;
-		var topGap    = 28;
+		var topGap    = 75;
 
 		jQuery( window ).scroll( function() {
 
@@ -22,7 +22,13 @@ jQuery( document ).ready( function($) {
 					if ( d.getFullYear() != $('.flux-year.flux-year-active').html() ) {
 						$('.flux-year').removeClass('flux-year-active');
 						$('.flux-year-'+d.getFullYear()).addClass('flux-year-active');
-						// @todo make sure the proper month range is loaded
+						$('.flux-month-selector').hide();
+						$('#flux-month-selector-'+d.getFullYear()).show();
+					}
+					var month_num = d.getMonth() + 1;
+					if ( month_num != $('.flux-month.flux-month-active').html() ) {
+						$('.flux-month').removeClass('flux-month-active');
+						$('.flux-month-'+month_num).addClass('flux-month-active');
 					}
 					return false; // stops the iteration after the first one on screen
 				}
@@ -31,7 +37,7 @@ jQuery( document ).ready( function($) {
 			if ( stickyTop - topGap < windowTop ) {
 				flux.css( { position: 'fixed', top: topGap } );
 			} else {
-				flux.css( 'position', 'static' );
+				flux.css( 'position', 'absolute' );
 			}
 		});
 	}
