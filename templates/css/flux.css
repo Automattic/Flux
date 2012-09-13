@@ -1,3 +1,7 @@
+#flux-navigation {
+	z-index: 10;
+}
+
 #flux-navigation #flux-year-selector {
 	float:left;
 	width:85px
