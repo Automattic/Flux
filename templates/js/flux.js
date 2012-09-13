@@ -5,7 +5,7 @@ jQuery( document ).ready( function($) {
 	if ( !! flux.offset() ) {
 
 		var stickyTop = flux.offset().top;
-		var topGap    = 75;
+		var topGap    = 78;
 
 		jQuery( window ).scroll( function() {
 
@@ -34,10 +34,10 @@ jQuery( document ).ready( function($) {
 				}
 			});
 
-			if ( stickyTop - topGap < windowTop ) {
-				flux.css( { position: 'fixed', top: topGap } );
+			if ( windowTop > stickyTop - topGap ) {
+					flux.css( { position: 'fixed', top: topGap } );
 			} else {
-				flux.css( 'position', 'absolute' );
+				flux.css( { position: 'absolute', top: 0 } );
 			}
 		});
 	}
