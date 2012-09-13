@@ -11,3 +11,8 @@
 #flux-navigation #flux-month-selector ul li {
 	list-style-type: none;
 }
+
+#flux-navigation #flux-year-selector ul li a.flux-year-active,
+#flux-navigation #flux-month-selector ul li a.flux-month-active {
+	font-weight: bold;
+}

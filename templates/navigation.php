@@ -23,8 +23,6 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 					$classes[] = 'flux-year-active';
 				$classes = apply_filters( 'flux_year_selector_classes', $classes );
 				$year_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_year_link( $year ) . '">' . $year . '</a>';
-				if ( $active_year )
-					$year_link = '<strong>' . $year_link . '</strong>';
 				echo '<li>' . $year_link . '</li>';
 			} ?>
 
@@ -41,8 +39,6 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 				if ( $active_month )
 					$classes[] = 'flux-month-active';
 				$month_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
-				if ( $active_month )
-					$month_link = '<strong>' . $month_link . '</strong>';
 				echo '<li>' . $month_link . '</li>';
 			} ?>
 		</ul>
