@@ -1,6 +1,6 @@
 jQuery( document ).ready( function($) {
 
-	var flux = jQuery( '#flux-navigation' );
+	var flux = jQuery( '#flux-time-selectors' );
 
 	if ( !! flux.offset() ) {
 
