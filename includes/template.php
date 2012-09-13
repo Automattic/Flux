@@ -192,13 +192,9 @@ function flux_parse_query( $posts_query ) {
 	if ( is_admin() )
 		return;
 
-	// Bail if not a timeline request
-	$flux = $posts_query->get( flux_get_rewrite_id() );
-	if ( empty( $flux ) )
-		return;
-
-	// Set theme compat to true
-	$posts_query->flux = true;
+	// If this is a flux request, or there is a page, include theme compat
+	if ( $posts_query->get( flux_get_rewrite_id() ) || flux_get_rewrite_id() == $posts_query->get( 'pagename' ) ) 
+		$posts_query->flux = true;
 }
 
 /** Custom Functions **********************************************************/
