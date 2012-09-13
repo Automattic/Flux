@@ -53,3 +53,6 @@ add_filter( 'flux_template_include', 'flux_template_include_theme_compat',   4, 
 // Theme Classes
 add_filter( 'flux_body_class', 'flux_add_body_class', 10, 2 );
 add_filter( 'flux_post_class', 'flux_add_post_class', 10, 3 );
+
+// Infinite scroll
+add_filter( 'infinite_scroll_js_settings', 'flux_infinite_scroll_js_settings' );

@@ -82,3 +82,16 @@ function flux_add_post_class( $wp_classes = array(), $class = '', $post_id = 0 )
 
 	return apply_filters( 'flux_add_post_class', $classes, $flux_classes, $wp_classes, $class, $post_id );
 }
+
+/**
+ * Make sure infinite scroll added content to the Flux section
+ *
+ * @since Flux (0.1)
+ *
+ * @param array $settings Infinite scroll Javascript settings
+ * @return array
+ */
+function flux_infinite_scroll_js_settings( $settings ) {
+	$settings['id'] = 'flux-content';
+	return $settings;
+}
