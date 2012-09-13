@@ -1,4 +1,4 @@
-jQuery( document ).ready( function() {
+jQuery( document ).ready( function($) {
 
 	var flux = jQuery( '#flux-capacitor' );
 
@@ -10,6 +10,23 @@ jQuery( document ).ready( function() {
 		jQuery( window ).scroll( function() {
 
 			var windowTop = jQuery( window ).scrollTop();
+
+			$('.post.flux').removeClass('top').each(function() {
+				var transition_zone = windowTop - ( $(this).height * .8 )
+				if ( $(this).offset().top > windowTop ) {
+					$(this).addClass('top');
+					var timestamp = $(this).attr('class').match( /flux-timestamp-([\d]+)/ );
+					if ( ! $.isArray( timestamp ) )
+						return false;
+					var d = new Date( timestamp[1] * 1000 );
+					if ( d.getFullYear() != $('.flux-year.flux-year-active').html() ) {
+						$('.flux-year').removeClass('flux-year-active');
+						$('.flux-year-'+d.getFullYear()).addClass('flux-year-active');
+						// @todo make sure the proper month range is loaded
+					}
+					return false; // stops the iteration after the first one on screen
+				}
+			});
 
 			if ( stickyTop - topGap < windowTop ) {
 				flux.css( { position: 'fixed', top: topGap } );

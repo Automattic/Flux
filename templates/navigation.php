@@ -18,6 +18,7 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 				$active_year = ( $year == $current_year ) ? true : false;
 				$classes = array(
 						'flux-year',
+						'flux-year-' . $year,
 					);
 				if ( $active_year )
 					$classes[] = 'flux-year-active';
