@@ -14,42 +14,37 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 <div id="flux-capacitor" style="position: absolute;">
 	<div id="flux-year-selector">
 		<ul>
-			<?php foreach( $years as $year ) : ?>
-
-				<?php
-
-				$year_link = '<a class="flux-year" href="' . get_year_link( $year ) . '">' . $year . '</a>';
-
-				if ( $year == $current_year )
+			<?php foreach( $years as $year ) {
+				$active_year = ( $year == $current_year ) ? true : false;
+				$classes = array(
+						'flux-year',
+					);
+				if ( $active_year )
+					$classes[] = 'flux-year-active';
+				$classes = apply_filters( 'flux_year_selector_classes', $classes );
+				$year_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_year_link( $year ) . '">' . $year . '</a>';
+				if ( $active_year )
 					$year_link = '<strong>' . $year_link . '</strong>';
-
 				echo '<li>' . $year_link . '</li>';
-
-				?>
-
-			<?php endforeach; ?>
+			} ?>
 
 		</ul>
 	</div>
 
 	<div id="flux-month-selector">
 		<ul>
-
-			<?php foreach( $months as $month ) : ?>
-
-				<?php
-
-				$month_link = '<a class="flux-month" href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
-
-				if ( $month == $current_month )
+			<?php foreach( $months as $month ) {
+				$active_month = ( $month == $current_month ) ? true : false;
+				$classes = array(
+						'flux-month',
+					);
+				if ( $active_month )
+					$classes[] = 'flux-month-active';
+				$month_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
+				if ( $active_month )
 					$month_link = '<strong>' . $month_link . '</strong>';
-
 				echo '<li>' . $month_link . '</li>';
-
-			?>
-
-			<?php endforeach; ?>
-
+			} ?>
 		</ul>
 	</div>
 </div>
