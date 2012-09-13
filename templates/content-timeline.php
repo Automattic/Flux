@@ -2,8 +2,6 @@
 
 	<div id="flux-navigation">
 
-		<div id="flux-capacitor"></div>
-
 		<?php flux_get_template_part( 'navigation' ); ?>
 
 	</div>

@@ -31,7 +31,7 @@ for( $i = 12; $i >= 1; $i-- ) {
 			if ( $active_year )
 				$classes[] = 'flux-year-active';
 			$classes = apply_filters( 'flux_year_selector_classes', $classes );
-			$year_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_year_link( $year ) . '">' . $year . ' <span>&bull;</span></a>';
+			$year_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_year_link( $year ) . '">' . $year . ' <span>&#9656;</span></a>';
 			echo '<li>' . $year_link . '</li>';
 		} ?>
 
@@ -50,7 +50,7 @@ for( $i = 12; $i >= 1; $i-- ) {
 			if ( $active_month )
 				$classes[] = 'flux-month-active';
 			if ( in_array( $month, $months ) )
-				$month_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_month_link( $current_year, $month ) . '">' . $month . ' <span>&bull;</span></a>';
+				$month_link = '<a class="' . implode( ' ', $classes ) . '" href="' . get_month_link( $current_year, $month ) . '">' . $month . ' <span>&#9656;</span></a>';
 			else
 				$month_link = $month . ' <span>&bull;</span>';
 			echo '<li>' . $month_link . '</li>';
@@ -58,5 +58,6 @@ for( $i = 12; $i >= 1; $i-- ) {
 	</ul>
 </div>
 <?php endforeach; ?>
+	<div id="flux-capacitor"></div>
 </div>
 </div>

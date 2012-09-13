@@ -8,16 +8,19 @@
 	border-right: 3px solid #222;
 	min-height: 10000px;
 	position: absolute;
-	right: 0;
-	margin-left: 10px;
+	z-index: 10;
+	margin-left: 126px;
+	top: -50px;
 }
 
 #flux-navigation #flux-time-selectors {
 	position: absolute;
 	top: 0;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.2);
 	padding-top: 10px;
 	padding-bottom: 10px;
+	font-weight: bold;
+	width: 127px;
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector {
@@ -34,18 +37,20 @@
 	margin-left: 10px;
 	margin-right: 10px;
 	padding: 0;
+	margin-bottom: 0;
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li {
 	list-style-type: none;
-	text-align: right;
-	color: rgba(85, 85, 85, .5);
+	text-align: left;
+	color: rgba(85, 85, 85, .2);
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li a,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li a {
-	color: #555;
+	color: rgba(15,15,15,.5);
+	padding: 10px 0;
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li span,
@@ -55,9 +60,15 @@
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li a.flux-year-active,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li a.flux-month-active {
+	color: rgba(15,15,15,1);
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li a.flux-year-active span,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li a.flux-month-active span {
-	color: rgba(85, 85, 85, 1);
+	color: rgba(15,15,15,1);
+}
+
+/* Theme overrides */
+body.flux .page-header {
+	display: none;
 }
