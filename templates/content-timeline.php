@@ -8,7 +8,8 @@
 
 	<?php
 		$flux_posts = new WP_Query( array(
-			'post_type' => 'post',
+			'post_type'               => 'post',
+			'ignore_sticky_posts'     => 1,
 		) );
 	?>
 
