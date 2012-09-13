@@ -381,5 +381,5 @@ function flux_body_class( $class = '' ) {
  * @return string
  */
 function flux_post_class( $wp_classes = array(), $class = '', $post_id = 0 ) {
-	return apply_filters( 'flux_body_class', $wp_classes, $class, $post_id );
+	return apply_filters( 'flux_post_class', $wp_classes, $class, $post_id );
 }
