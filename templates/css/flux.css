@@ -15,15 +15,19 @@
 #flux-navigation #flux-time-selectors {
 	position: absolute;
 	top: 0;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector {
 	float:left;
-	width:85px
+	margin-left: 15px;
 }
 
 #flux-navigation #flux-time-selectors .flux-month-selector {
-	margin-left:80px;
+	margin-left:70px;
+	width: 50px;
 }
 
 #flux-navigation #flux-time-selectors ul {
@@ -35,9 +39,25 @@
 #flux-navigation #flux-time-selectors .flux-year-selector ul li,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li {
 	list-style-type: none;
+	text-align: right;
+	color: rgba(85, 85, 85, .5);
+}
+
+#flux-navigation #flux-time-selectors .flux-year-selector ul li a,
+#flux-navigation #flux-time-selectors .flux-month-selector ul li a {
+	color: #555;
+}
+
+#flux-navigation #flux-time-selectors .flux-year-selector ul li span,
+#flux-navigation #flux-time-selectors .flux-month-selector ul li span {
+	color: rgba(85, 85, 85, 0);
 }
 
 #flux-navigation #flux-time-selectors .flux-year-selector ul li a.flux-year-active,
 #flux-navigation #flux-time-selectors .flux-month-selector ul li a.flux-month-active {
-	font-weight: bold;
+}
+
+#flux-navigation #flux-time-selectors .flux-year-selector ul li a.flux-year-active span,
+#flux-navigation #flux-time-selectors .flux-month-selector ul li a.flux-month-active span {
+	color: rgba(85, 85, 85, 1);
 }
