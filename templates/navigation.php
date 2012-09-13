@@ -18,7 +18,7 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 
 				<?php
 
-				$year_link = '<a href="' . get_year_link( $year ) . '">' . $year . '</a>';
+				$year_link = '<a class="flux-year" href="' . get_year_link( $year ) . '">' . $year . '</a>';
 
 				if ( $year == $current_year )
 					$year_link = '<strong>' . $year_link . '</strong>';
@@ -39,7 +39,7 @@ $months        = wp_filter_object_list( $history, array( 'year' => $current_year
 
 				<?php
 
-				$month_link = '<a href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
+				$month_link = '<a class="flux-month" href="' . get_month_link( $current_year, $month ) . '">' . $month . '</a>';
 
 				if ( $month == $current_month )
 					$month_link = '<strong>' . $month_link . '</strong>';
