@@ -11,7 +11,8 @@ class Flux_Default_Functions {
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'flux-global', flux_get_templates_url() . 'js/flux.js', array( 'jquery' ), 0, true );
+		wp_enqueue_script( 'flux-global-js', flux_get_templates_url() . 'js/flux.js', array( 'jquery' ), 0, true );
+		wp_enqueue_style( 'flux-global-css', flux_get_templates_url() . 'css/flux.css' );
 	}
 }
 new Flux_Default_Functions();

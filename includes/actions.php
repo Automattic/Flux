@@ -73,4 +73,4 @@ add_action( 'flux_init', 'flux_ready',            999 );
 add_action( 'flux_register', 'flux_register_shortcodes',     10 );
 
 // Try to load the flux-functions.php file from the active themes
-add_action( 'flux_after_setup_theme', 'flux_load_theme_functions', 10 );
+add_action( 'flux_init', 'flux_load_theme_functions', 10 );
