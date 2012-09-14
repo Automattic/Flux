@@ -50,6 +50,7 @@ jQuery( document ).ready( function($) {
 		infiniteScroll.scroller.refresh();
 
 		jQuery( '#flux-content' ).html( '' ); 
+		infiniteScroll.scroller.refresh();
 		infiniteScroll.settings.ajaxurl = infinite_ajax_orig; 
 
 		return false
