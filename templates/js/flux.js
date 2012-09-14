@@ -43,7 +43,9 @@ jQuery( document ).ready( function($) {
 	}
 
 	jQuery( '.flux-year' ).click( function() {
-		var date = jQuery( this ).text().match( /[\d]{4}/ ) + '-12-31';
+		var year = jQuery( this ).text().match( /[\d]{4}/ )[0];
+		var date = year + '-12-31';
+
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
 		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1;
@@ -51,6 +53,10 @@ jQuery( document ).ready( function($) {
 		// update the UI to show the new display year
 		jQuery( '.flux-year-active' ).removeClass( 'flux-year-active' );
 		jQuery( this ).addClass( 'flux-year-active' );
+
+		// make the clicked years month nav visible
+		jQuery( '.flux-month-selector' ).hide();
+		jQuery( '#flux-month-selector-' + year ).show();
 
 		jQuery( '#flux-content' ).html( '' ); 
 		infiniteScroll.scroller.refresh();
