@@ -47,7 +47,10 @@ jQuery( document ).ready( function($) {
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
 		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1;
-		infiniteScroll.scroller.refresh();
+
+		// update the UI to show the new display year
+		jQuery( '.flux-year-active' ).removeClass( 'flux-year-active' );
+		jQuery( this ).addClass( 'flux-year-active' );
 
 		jQuery( '#flux-content' ).html( '' ); 
 		infiniteScroll.scroller.refresh();
@@ -58,7 +61,7 @@ jQuery( document ).ready( function($) {
 
 	jQuery( '.flux-month' ).click( function() {
 		var this_month = jQuery( this ).text().match( /[\d]{1,2}/ );
-		if ( this_month.match( /^\d$/ ) ) {
+		if ( this_month[0].match( /^\d$/ ) ) {
 			this_month = '0' + this_month;
 		}
 
@@ -68,6 +71,10 @@ jQuery( document ).ready( function($) {
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl;
 		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1; 
+
+		// update the UI to show the new display month
+		jQuery( '.flux-month-active' ).removeClass( 'flux-month-active' );
+		jQuery( this ).addClass( 'flux-month-active' );
 
 		jQuery( '#flux-content' ).html( '' );
 		infiniteScroll.scroller.refresh();
