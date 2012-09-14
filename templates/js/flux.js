@@ -58,7 +58,7 @@ jQuery( document ).ready( function($) {
 
 	jQuery( '.flux-month' ).click( function() {
 		var this_month = jQuery( this ).text().match( /[\d]{1,2}/ );
-		if ( this_month.match( /^\d$/ ) ) {
+		if ( this_month[0].match( /^\d$/ ) ) {
 			this_month = '0' + this_month;
 		}
 
