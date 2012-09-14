@@ -47,7 +47,6 @@ jQuery( document ).ready( function($) {
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
 		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1;
-		infiniteScroll.scroller.refresh();
 
 		jQuery( '#flux-content' ).html( '' ); 
 		infiniteScroll.scroller.refresh();
