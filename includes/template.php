@@ -199,7 +199,10 @@ function flux_parse_query( $posts_query ) {
 		return;
 
 	// If this is a flux request, or there is a page, include theme compat
-	if ( $posts_query->get( flux_get_rewrite_id() ) || flux_get_rewrite_id() == $posts_query->get( 'pagename' ) ) 
+	$page_as_home = get_page( get_option( 'page_on_front') );
+	if ( $posts_query->get( flux_get_rewrite_id() ) 
+		|| flux_get_rewrite_id() == $posts_query->get( 'pagename' )
+		|| ( is_home() && is_object( $page_as_home ) && flux_get_rewrite_id() == $page_as_home->post_name ) ) 
 		$posts_query->flux = true;
 }
 
