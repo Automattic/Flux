@@ -68,13 +68,13 @@ jQuery( document ).ready( function($) {
 	} );
 
 	jQuery( '.flux-month' ).click( function() {
-		var this_month = jQuery( this ).text().match( /[\d]{1,2}/ );
-		if ( this_month[0].match( /^\d$/ ) ) {
+		var this_month = jQuery( this ).text().match( /[\d]{1,2}/ )[0];
+		if ( this_month.match( /^\d$/ ) ) {
 			this_month = '0' + this_month;
 		}
 
 		var date = jQuery( '.flux-year-active' ).text().match( /[\d]{4}/ );
-		date += '-' + this_month + '-01';
+		date += '-' + this_month + '-31';
 
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl;
 		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
