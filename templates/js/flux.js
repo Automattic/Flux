@@ -57,6 +57,7 @@ jQuery( document ).ready( function($) {
 		// make the clicked years month nav visible
 		jQuery( '.flux-month-selector' ).hide();
 		jQuery( '#flux-month-selector-' + year ).show();
+		jQuery( '#flux-month-selector-' + year ).find( '.flux-month-active' ).removeClass( 'flux-month-active' );
 		jQuery( '#flux-month-selector-' + year ).find( '.flux-month' ).first().addClass( 'flux-month-active' );
 
 		jQuery( '#flux-content' ).html( '' ); 
