@@ -7,7 +7,7 @@ jQuery( document ).ready( function($) {
 		var stickyTop = flux.offset().top;
 		var topGap    = 78;
 
-		jQuery( window ).scroll( function() {
+		jQuery( window ).on( 'scroll', false, function() {
 
 			var windowTop = jQuery( window ).scrollTop();
 
@@ -45,7 +45,7 @@ jQuery( document ).ready( function($) {
 	jQuery( '.flux-year' ).click( function() {
 		var date = jQuery( this ).text() + '-12-31';
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
-		infiniteScroll.settings.ajaxurl += '&date=' + date; 
+		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date; 
 		infiniteScroll.scroller.page = 1;
 
 		jQuery( '#flux-content' ).html( '' ); 
@@ -64,7 +64,7 @@ jQuery( document ).ready( function($) {
 		date += '-' + this_month + '-01';
 
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl;
-		infiniteScroll.settings.ajaxurl += '&date=' + date;
+		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1; 
 
 		jQuery( '#flux-content' ).html( '' );

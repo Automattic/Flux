@@ -180,6 +180,12 @@ function flux_add_template_locations( $templates = array() ) {
  */
 function flux_parse_query( $posts_query ) {
 
+	// If this is an explicitly named flux query, we're cool
+	if ( $posts_query->get( 'doing_flux' ) ) {
+		$posts_query->flux = true;
+		return;
+	}
+
 	// Bail if $posts_query is not the main loop
 	if ( ! $posts_query->is_main_query() )
 		return;

@@ -73,16 +73,26 @@ function flux_add_post_class( $wp_classes = array(), $class = '', $post_id = 0 )
 	// The special flux body classes
 	$flux_classes = array();
 
-	// Add Flux class if we are within a timeline page
-	if ( is_flux_query() ) {
-		$flux_classes[] = 'flux';
-		$flux_classes[] = 'flux-timestamp-' . get_the_time( 'U', $post_id );
-	}
+	// Add special flux classes
+	$flux_classes[] = 'flux';
+	$flux_classes[] = 'flux-timestamp-' . get_the_time( 'U', $post_id );
 
 	// Merge WP classes with Flux classes and remove duplicates
 	$classes = array_unique( array_merge( (array) $flux_classes, (array) $wp_classes ) );
 
 	return apply_filters( 'flux_add_post_class', $classes, $flux_classes, $wp_classes, $class, $post_id );
+}
+
+/**
+ * If this is a infinite scroll request on a flux page,
+ * make sure we indicate this is a Flux query
+ */
+function flux_infinite_scroll_query_args( $args ) {
+
+	if ( ! empty( $_GET['doing_flux'] ) )
+		$args['doing_flux'] = true;
+
+	return $args;
 }
 
 /**

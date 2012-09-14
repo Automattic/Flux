@@ -56,3 +56,4 @@ add_filter( 'flux_post_class', 'flux_add_post_class', 10, 3 );
 
 // Infinite scroll
 add_filter( 'infinite_scroll_js_settings', 'flux_infinite_scroll_js_settings' );
+add_filter( 'infinite_scroll_query_args', 'flux_infinite_scroll_query_args' );
