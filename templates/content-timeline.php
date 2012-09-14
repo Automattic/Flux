@@ -19,11 +19,7 @@
 
 		<?php while ( $flux_posts->have_posts() ): $flux_posts->the_post(); ?>
 
-			<div class="flux-post">
-
 			<?php flux_get_template_part( 'content', get_post_format() ); ?>
-
-			</div>
 
 		<?php endwhile; ?>
 

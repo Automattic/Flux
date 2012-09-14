@@ -5,7 +5,7 @@ jQuery( document ).ready( function($) {
 	if ( !! flux.offset() ) {
 
 		var stickyTop = flux.offset().top;
-		var topGap    = 78;
+		var topGap    = 124;
 
 		jQuery( window ).on( 'scroll', false, function() {
 
