@@ -68,6 +68,11 @@
 	color: rgba(15,15,15,1);
 }
 
+/* Prevent invisible content area on month/year click */
+#flux-content {
+	min-height: 326px;
+}
+
 /* Theme overrides */
 body.flux .page-header {
 	display: none;
