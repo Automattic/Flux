@@ -43,10 +43,11 @@ jQuery( document ).ready( function($) {
 	}
 
 	jQuery( '.flux-year' ).click( function() {
-		var date = jQuery( this ).text() + '-12-31';
+		var date = jQuery( this ).text().match( /[\d]{4}/ ) + '-12-31';
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl; 
-		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date; 
+		infiniteScroll.settings.ajaxurl += '&doing_flux=true&date=' + date;
 		infiniteScroll.scroller.page = 1;
+		infiniteScroll.scroller.refresh();
 
 		jQuery( '#flux-content' ).html( '' ); 
 		infiniteScroll.settings.ajaxurl = infinite_ajax_orig; 
@@ -55,12 +56,12 @@ jQuery( document ).ready( function($) {
 	} );
 
 	jQuery( '.flux-month' ).click( function() {
-		var this_month = jQuery( this ).text();
+		var this_month = jQuery( this ).text().match( /[\d]{1,2}/ );
 		if ( this_month.match( /^\d$/ ) ) {
 			this_month = '0' + this_month;
 		}
 
-		var date = jQuery( '.flux-year-active' ).text();
+		var date = jQuery( '.flux-year-active' ).text().match( /[\d]{4}/ );
 		date += '-' + this_month + '-01';
 
 		var infinite_ajax_orig = infiniteScroll.settings.ajaxurl;
